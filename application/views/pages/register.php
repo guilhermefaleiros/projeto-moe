@@ -21,8 +21,9 @@
         </div>
     </nav>
     <div class="container">
-        <?php echo isset($msgs) ? $msgs : ''; ?>
+        
         <form class="form-user" method="post" action="/users/new">
+            <?php echo isset($msgs) ? $msgs : ''; ?>
             <div class="input-field col s6">
                 <input placeholder="Email" name="email" id="email" type="email" class="validate">
             </div>

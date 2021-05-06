@@ -13,6 +13,7 @@
 
     <link href="<?=base_url('assets/css/register.css')?>" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="<?=base_url('assets/js/register.js')?>" ></script>
+    <script type="text/javascript" src="<?=base_url('assets/css/login.css')?>" ></script>
 </head>
 <body>
     <nav>
@@ -20,18 +21,39 @@
         <a style="margin-left: 30px;" href="#" class="brand-logo">Mural de Oportunidades de Estágio</a>
         </div>
     </nav>
-    <div class="container">
+    <div id="login-page" class="row">
         <?php echo isset($msgs) ? $msgs : ''; ?>
-        <form class="form-user" method="post" action="/users/login">
-            <div class="input-field col s6">
-                <input placeholder="Email" name="email" id="email" type="email" class="validate">
-            </div>
-            <div class="input-field col s6">
-                <input placeholder="Senha" name="password" id="password" type="password" class="validate">
-            </div>
-            <button class="btn waves-effect waves-light removable" type="submit" name="action">Enviar
-                <i class="material-icons right">send</i>
-            </button>
-        </form>
+        <div class="col s12 z-depth-6 card-panel">
+            <form class="login-form" method="post" action="/users/login">
+                <div class="row">
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">mail_outline</i>
+                        <input class="validate" name="email" id="email" type="email">
+                        <label for="email" data-error="wrong" data-success="right">E-mail</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">lock_outline</i>
+                        <input name="password" id="password" type="password">
+                        <label for="password">Senha</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <button style="width: 100%;" class="btn waves-effect waves-light removable" type="submit" name="action">Enviar
+                    </button>
+                    </div>
+                    
+                </div>
+                <div class="row">
+                    <div class="input-field col s6 m6 l6">
+                        <p class="margin medium-small"><a href="register">Crie sua conta agora!</a></p>
+                    </div>         
+                </div>
+            </form>
+        </div>
     </div>
 </body>

@@ -31,7 +31,7 @@ function appendInternInfo () {
     <div class="input-field col s6 removable">
       <input placeholder="Minicurrículo" name="minicurriculum" id="minicurriculum" type="text" class="validate">
     </div>
-    <button class="btn waves-effect waves-light removable" type="submit" name="action">Enviar
+    <button class="btn waves-effect waves-light removable" type="submit" name="action">Cadastrar
       <i class="material-icons right">send</i>
     </button>
     `

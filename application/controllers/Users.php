@@ -19,7 +19,9 @@ class Users extends CI_Controller
         $this->form_validation->set_rules('password', 'Senha', 'required');
 
         if ($this->form_validation->run() === FALSE) {
-            $this->load->view('pages/login');
+            $errors = array('msgs' => validation_errors());
+            $this->load->view('pages/login', $errors);
+            return;
         } else {
             $user = $this->users_model->getByEmailAndPassword();
             if ($user) {
