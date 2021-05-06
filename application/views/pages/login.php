@@ -18,7 +18,7 @@
 <body>
     <nav>
         <div class="nav-wrapper">
-        <a style="margin-left: 30px;" href="#" class="brand-logo">Mural de Oportunidades de Estágio</a>
+        <a style="margin-left: 30px;" href="#" class="brand-logo">Mural de Oportunidades de Estágio - Login</a>
         </div>
     </nav>
     <div id="login-page" class="row">
@@ -43,7 +43,7 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <button style="width: 100%;" class="btn waves-effect waves-light removable" type="submit" name="action">Enviar
+                        <button style="width: 100%;" class="btn waves-effect waves-light removable" type="submit" name="action">Entrar
                     </button>
                     </div>
                     
