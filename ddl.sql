@@ -18,3 +18,22 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
+
+
+CREATE TABLE IF NOT EXISTS `offers` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(250) NOT NULL,
+  `activities` VARCHAR(250) NOT NULL,
+  `required_year` VARCHAR(4),
+  `required_skills` VARCHAR(250),
+  `hours` VARCHAR(2),
+  `salary` VARCHAR(10),
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `offer_interest` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `user_id` INT NOT NULL,
+  `offer_id` INT NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;

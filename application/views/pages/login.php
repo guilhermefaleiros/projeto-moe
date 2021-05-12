@@ -18,7 +18,7 @@
 <body>
     <nav>
         <div class="nav-wrapper">
-        <a style="margin-left: 30px;" href="#" class="brand-logo">Mural de Oportunidades de Estágio - Login</a>
+        <a style="margin-left: 30px;" href="#" class="brand-logo trigger">Mural de Oportunidades de Estágio - Login</a>
         </div>
     </nav>
     <div id="login-page" class="row">

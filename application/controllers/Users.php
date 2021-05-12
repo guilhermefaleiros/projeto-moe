@@ -24,12 +24,16 @@ class Users extends CI_Controller
             return;
         } else {
             $user = $this->users_model->getByEmailAndPassword();
-            if ($user) {
-                $this->session->set_userdata(['user'=>$user]);
-                $this->load->view('pages/home');
-                return;
+            if ($user->account_type === 'intern') {
+                $this->session->set_userdata(['user' => $user]);
+                redirect('home/intern', 'location', 302);
+                die();
             }
-            echo 'Usuário ou senha não encontrado';
+            if ($user->account_type === 'employer') {
+                $this->session->set_userdata(['user' => $user]);
+                redirect('home/employer', 'location', 302);
+                die();
+            }
         } 
     }
 
