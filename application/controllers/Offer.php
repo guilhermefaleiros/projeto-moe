@@ -1,5 +1,11 @@
 <?php
 
+require_once('CourseValidation.php');
+require_once('ESCourseValidation.php');
+require_once('CCCourseValidation.php');
+require_once('SICourseValidation.php');
+require_once('GenericValidation.php');
+
 class Offer extends CI_Controller 
 {
 
@@ -49,16 +55,30 @@ class Offer extends CI_Controller
         $this->form_validation->set_rules('required_skills', 'Habilidades necessárias', 'required');
         $this->form_validation->set_rules('salary', 'Salário', 'required');
         $this->form_validation->set_rules('hours', 'Horas de trabalho', 'required');
+        $this->form_validation->set_rules('course', 'Curso', 'required');
 
         if($this->form_validation->run() === false) {
             $errors = ['msgs' => validation_errors()];
             $this->load->view('pages/new_offer', $errors);
         } else {
-            $this->offers_model->new();
+            $courseId = $this->input->post('course');
+            $error = null;
+
+            if($courseId === "1") $error = $this->offers_model->new(new CCCourseValidation());
+            if($courseId === "2") $error = $this->offers_model->new(new ESCourseValidation());
+            if($courseId === "3") $error = $this->offers_model->new(new SICourseValidation());
+            if($courseId === "4") $error = $this->offers_model->new(new GenericCourseValidation());
+
+
+            if($error !== null) {
+                $errors = ['msgs' => $error];
+                $this->load->view('pages/new_offer', $errors);
+                return;
+            }
+
             redirect('home/employer', 'location', 302);
             die();
         }
-    
     }
 
 }

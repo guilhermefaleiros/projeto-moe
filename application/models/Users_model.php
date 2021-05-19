@@ -35,6 +35,11 @@ class Users_model extends CI_Model
         return $user;
     }
 
+    public function getEmployers() {
+        $query = $this->db->get_where($this->table_name, array('account_type' => 'employer'));
+        return $query->result();
+    }
+
     public function new() {
         $this->load->helper('url');
         $data = [

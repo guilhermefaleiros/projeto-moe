@@ -42,7 +42,10 @@ function appendEmployerInfo () {
   $('.form-user').append(
     `
     <div class="input-field col s6 removable">
-      <input placeholder="Nome" name="contactName" id="contactName" type="text" class="validate">
+      <input placeholder="Nome" name="name" id="name" type="text" class="validate">
+    </div>
+    <div class="input-field col s6 removable">
+      <input placeholder="Nome do contato" name="contactName" id="contactName" type="text" class="validate">
     </div>
     <div class="input-field col s6 removable">
       <input placeholder="Nome da Empresa" name="nameCompany" id="nameCompany" type="text" class="validate">

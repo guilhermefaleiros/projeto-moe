@@ -49,6 +49,15 @@
                     <option value="30">30 horas</option>
                 </select>
             </div>
+            <div class="input-field col s6">
+                <select name="course" class="select-type">
+                    <option value="" disabled selected>Curso</option>
+                    <option value="1">Ciência da Computação</option>
+                    <option value="2">Engenharia de Software</option>
+                    <option value="3">Sistemas de Informação</option>
+                    <option value="4">Outro</option>
+                </select>
+            </div>
             <button class="btn waves-effect waves-light removable" type="submit" name="action">Cadastrar
                 <i class="material-icons right">send</i>
             </button>

@@ -17,7 +17,7 @@
 <body>
     <nav>
         <div class="nav-wrapper">
-            <a style="margin-left: 30px;" data-target="slide-out" href="#" class="brand-logo trigger">Home - Você se cadastrou na(s) vaga(s) ofertada(s)!</a>
+            <a style="margin-left: 30px;" data-target="slide-out" href="#" class="brand-logo trigger">Home - Você cadastrou interesse na(s) empresa(s) selecionada(s)!</a>
         </div>
     </nav>
     <div  style="margin-top: 30px; margin-left:30px;">

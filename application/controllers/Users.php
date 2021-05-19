@@ -1,5 +1,7 @@
 <?php
 
+require_once('ESCourseValidation.php');
+
 class Users extends CI_Controller 
 {
 
@@ -68,7 +70,7 @@ class Users extends CI_Controller
 
         if($this->form_validation->run() === false) {
             $errors = array('msgs' => validation_errors());
-            $this->load->view('pages/home', $errors);
+            $this->load->view('pages/register', $errors);
         } else {
             $this->users_model->new();
             redirect('users/login', 'location', 302);

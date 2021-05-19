@@ -2,7 +2,7 @@
 
 class Interest_model extends CI_Model
 {
-    protected $table_name = 'offer_interest';
+    protected $table_name = 'company_interest';
 
     public function __construct()
     {
@@ -10,11 +10,11 @@ class Interest_model extends CI_Model
         $this->load->database();
     }
 
-    public function declare_interest($offers_id, $user_id) {
+    public function declare_interest($companies_id, $user_id) {
         $results = [];
-        foreach($offers_id as $offer_id) {
+        foreach($companies_id as $company_id) {
             $data = [
-                'offer_id' => $offer_id,
+                'company_id' => $company_id,
                 'user_id' => $user_id
             ];
             array_push($results, $this->db->insert($this->table_name, $data)); 

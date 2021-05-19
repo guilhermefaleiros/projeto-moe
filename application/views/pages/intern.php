@@ -24,36 +24,32 @@
         <!-- <li><a href="offer"><i class="material-icons">add_circle</i>Criar</a></li> -->
     </ul>
     <div class="container" style="margin-top: 30px;">
-        <form method="post" action="/home/new_interest">
+        <form method="post" action="/offer/new_interest">
             <?php echo isset($msgs) ? $msgs : ''; ?>
             <table>
                 <thead>
                     <tr>
                         <th></th>
                         <th>Nome</th>
-                        <th>Atividades</th>
-                        <th>Ano requerido</th>
-                        <th>Habilidades requeridos</th>
-                        <th>Horas</th>
-                        <th>Salário</th>
+                        <th>Email</th>
+                        <th>Descrição</th>
+                        <th>Nome do contato</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($offers as $offer) : ?>
+                    <?php foreach ($companies as $company) : ?>
                         
                         <tr>
                             <td>
                                 <label>
-                                    <input name="<?php echo $offer->id ;?>" type="checkbox" />
+                                    <input name="<?php echo $company->id ;?>" type="checkbox" />
                                     <span>Selecionar</span>
                                 </label>
                             </td>
-                            <td><?php echo $offer->name ;?></td>
-                            <td><?php echo $offer->activities ;?></td>
-                            <td><?php echo $offer->required_year ;?></td>
-                            <td><?php echo $offer->required_skills ;?></td>
-                            <td><?php echo $offer->hours ;?></td>
-                            <td><?php echo "R$ $offer->salary" ;?></td>
+                            <td><?php echo $company->name ;?></td>
+                            <td><?php echo $company->email ;?></td>
+                            <td><?php echo $company->company_description ;?></td>
+                            <td><?php echo $company->contact_name ;?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

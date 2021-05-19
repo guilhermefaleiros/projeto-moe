@@ -7,6 +7,7 @@ class Home extends CI_Controller
     {
         parent::__construct();
         $this->load->model('offers_model');
+        $this->load->model('users_model');
         $this->load->model('interest_model');
         $this->load->helper('url');
         $this->load->library('session');
@@ -33,7 +34,6 @@ class Home extends CI_Controller
 
     public function intern() 
     {
-        $this->session->unset_userdata('user');
         $user = $this->session->user ?? null;
         if(!$user) {
             redirect('users/login', 'location', 302);
@@ -45,9 +45,9 @@ class Home extends CI_Controller
             die();
             return;
         }
-        $results = $this->offers_model->get();
+        $results = $this->users_model->getEmployers();
         $this->load->helper('url');
-        $this->load->view('pages/intern', ['offers' => $results]);
+        $this->load->view('pages/intern', ['companies' => $results]);
     }
 
 }

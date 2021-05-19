@@ -27,13 +27,20 @@ CREATE TABLE IF NOT EXISTS `offers` (
   `required_year` VARCHAR(4),
   `required_skills` VARCHAR(250),
   `hours` VARCHAR(2),
+  `course_id` INT NOT NULL,
   `salary` VARCHAR(10),
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `offer_interest` (
+CREATE TABLE IF NOT EXISTS `company_interest` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `user_id` INT NOT NULL,
-  `offer_id` INT NOT NULL,
+  `company_id` INT NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `courses` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(250) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
