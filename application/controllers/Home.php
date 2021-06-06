@@ -45,7 +45,7 @@ class Home extends CI_Controller
             die();
             return;
         }
-        $results = $this->users_model->getEmployers();
+        $results = $this->users_model->getEmployers($user->id);
         $this->load->helper('url');
         $this->load->view('pages/intern', ['companies' => $results]);
     }

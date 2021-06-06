@@ -35,8 +35,10 @@ class Users_model extends CI_Model
         return $user;
     }
 
-    public function getEmployers() {
-        $query = $this->db->get_where($this->table_name, array('account_type' => 'employer'));
+    public function getEmployers($user_id) {
+		$queryString = "SELECT * FROM users as u WHERE account_type = 'employer' AND NOT EXISTS 
+		(SELECT * FROM company_interest WHERE company_id = u.id and user_id = $user_id)";
+		$query = $this->db->query($queryString);
         return $query->result();
     }
 
@@ -57,6 +59,13 @@ class Users_model extends CI_Model
         ];
         return $this->db->insert($this->table_name, $data);
     }
+
+	public function userInterestedOnCompany($companyId) {
+		$queryString = "SELECT * FROM users as u WHERE account_type = 'intern' AND EXISTS 
+		(SELECT * FROM company_interest WHERE user_id = u.id and company_id = $companyId)";
+		$query = $this->db->query($queryString);
+        return $query->result();
+	}
 
 
 }

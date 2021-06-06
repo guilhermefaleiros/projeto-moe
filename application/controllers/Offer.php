@@ -13,6 +13,7 @@ class Offer extends CI_Controller
     {
         parent::__construct();
         $this->load->model('offers_model');
+		$this->load->model('users_model');
         $this->load->model('interest_model');
         $this->load->helper('url');
         $this->load->library('session');
@@ -47,6 +48,8 @@ class Offer extends CI_Controller
     
     public function new_offer() 
     {
+		$user = $this->session->user ?? null;
+
         $this->load->library('form_validation');
 
         $this->form_validation->set_rules('description', 'Descrição', 'required');
@@ -69,15 +72,46 @@ class Offer extends CI_Controller
             if($courseId === "3") $error = $this->offers_model->new(new SICourseValidation());
             if($courseId === "4") $error = $this->offers_model->new(new GenericCourseValidation());
 
-
             if($error !== null) {
                 $errors = ['msgs' => $error];
                 $this->load->view('pages/new_offer', $errors);
                 return;
             }
 
-            redirect('home/employer', 'location', 302);
-            die();
+			$from_email = "guilhermefaleiros2000@gmail.com";
+	
+			//Load email library 
+			$this->load->library('email'); 
+			
+			$config['protocol'] = 'smtp';
+			$config['smtp_host'] = 'smtp.mailtrap.io';
+			$config['smtp_port'] = 2525;
+			$config['smtp_user'] = 'a85ec2ae2fbc31';
+			$config['smtp_pass'] = '92358ac2ea444f';
+			$config['crlf'] = "\r\n";
+			$config['newline'] = "\r\n";
+			$config['charset']    = 'utf-8';
+			$config['newline']    = "\r\n";
+			$config['mailtype'] = 'text';
+			
+			$this->email->initialize($config);
+
+			$users = $this->users_model->userInterestedOnCompany($user->id);
+
+			foreach($users as $u) {
+				$this->email->from($from_email, 'Mural de Oportunidade de Estágios'); 
+				$this->email->to($u->email);
+				$this->email->subject('[MOE] - Vaga cadastrada'); 
+				$this->email->message("Foi cadastrada a vaga: " . $this->input->post('description')); 
+				
+				$this->email->send(); 
+				$this->email->clear();
+			}
+
+			var_dump($users);
+			
+            // redirect('home/employer', 'location', 302);
+            // die();
         }
     }
 

@@ -39,6 +39,13 @@ class Users extends CI_Controller
         } 
     }
 
+	public function logout()
+    {
+        $this->session->unset_userdata('user');
+        redirect('auth/login', 'location', 302);
+        die();
+    }
+
     public function register()
     {
         $this->load->helper('url');
