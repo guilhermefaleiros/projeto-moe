@@ -110,8 +110,8 @@ class Offer extends CI_Controller
 
 			var_dump($users);
 			
-            // redirect('home/employer', 'location', 302);
-            // die();
+            redirect('home/employer', 'location', 302);
+            die();
         }
     }
 

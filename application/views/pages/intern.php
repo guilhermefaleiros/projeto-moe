@@ -15,14 +15,18 @@
 </head>
 <body>
     <nav>
-        <div class="nav-wrapper">
-            <a style="margin-left: 30px;" data-target="slide-out" href="#" class="brand-logo trigger">
-            <i class="material-icons">menu</i>Home - Estagiário</a>
+        <div class="nav-wrapper" style="display: flex;">
+			<a href="/users/logout" style="margin-right: 20px;" class="brand-logo right">Sair</a>
+			<ul id="nav-mobile" class="left hide-on-med-and-down">
+				<li>
+					<a style="margin-left: 30px;" data-target="slide-out" href="#" class="brand-logo trigger">
+						Home - Estagiário
+					</a>
+				</li>
+			</ul>
+            
         </div>
     </nav>
-    <ul id="slide-out" class="sidenav">
-        <!-- <li><a href="offer"><i class="material-icons">add_circle</i>Criar</a></li> -->
-    </ul>
     <div class="container" style="margin-top: 30px;">
         <form method="post" action="/offer/new_interest">
             <?php echo isset($msgs) ? $msgs : ''; ?>

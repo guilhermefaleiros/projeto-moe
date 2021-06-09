@@ -23,6 +23,7 @@
     </nav>
     <ul id="slide-out" class="sidenav">
         <li><a href="/home/employer"><i class="material-icons">home</i>Página inicial</a></li>
+		<li><a href="/users/logout"><i class="material-icons">exit_to_app</i>Sair</a></li>
     </ul>
     <div class="container" style="margin-top: 30px;">
         <form class="form-user" method="post" action="/offer/new_offer">

@@ -19,9 +19,11 @@
             <a style="margin-left: 30px;" data-target="slide-out" href="#" class="brand-logo trigger">
             <i class="material-icons">menu</i>Home - Contratante</a>
         </div>
+		<a href="/offer"><i class="material-icons">add_circle</i>Criar</a>
     </nav>
     <ul id="slide-out" class="sidenav">
         <li><a href="/offer"><i class="material-icons">add_circle</i>Criar</a></li>
+		<li><a href="/users/logout"><i class="material-icons">exit_to_app</i>Sair</a></li>
     </ul>
     <div class="container" style="margin-top: 30px;">
         <table>
